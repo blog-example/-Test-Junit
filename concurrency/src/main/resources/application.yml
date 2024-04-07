@@ -1,0 +1,18 @@
+
+logging:
+  level:
+    root: info
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/concurrency?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: 12345678
+  jpa:
+    show_sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
