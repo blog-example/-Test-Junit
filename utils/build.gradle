@@ -1,0 +1,8 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+}
+
+group = "com.junit.utils"
+version = "0.0.1-SNAPSHOT"
+

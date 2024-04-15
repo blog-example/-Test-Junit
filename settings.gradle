@@ -1,2 +1,4 @@
 rootProject.name = 'junit_example'
 include ':concurrency'
+include ':utils'
+

@@ -1,17 +1,12 @@
 package com.concurrency;
 
-
+import com.junit.utils.concurrency.ConcurrencyTestUtils;
 import com.concurrency.model.Post;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -70,30 +65,13 @@ public class PostServiceTest {
     long postId = post.getPostId();
     int concurrencyCount = 1000;
 
-    ExecutorService executorService = Executors.newFixedThreadPool(concurrencyCount);
-    CountDownLatch latch = new CountDownLatch(concurrencyCount);
-
     Post beforeQuery = postRepository.findById(postId).get();
 
-    try {
-      for (int i = 0; i < concurrencyCount; i++) {
-        executorService.submit(() -> {
-          try {
-            postService.getPost(postId);
-          } finally {
-            latch.countDown();
-          }
-        });
-      }
-
-      latch.await();
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-    } finally {
-      executorService.shutdown();
-    }
+    ConcurrencyTestUtils.executeConcurrently(
+            () -> postService.getPost(postId), concurrencyCount);
 
     Post afterQuery = postRepository.findById(postId).get();
+
     assertEquals(beforeQuery.getViewCount() + concurrencyCount, afterQuery.getViewCount());
   }
 
