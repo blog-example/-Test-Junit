@@ -1,19 +1,32 @@
 package com.concurrency;
 
-
+import com.concurrency.model.Post;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RequiredArgsConstructor
-@RestController("/post")
+@RequestMapping("/post")
+@RestController
 public class PostController {
 
-  private final PostRepository postRepository;
+  private final PostService postService;
 
+  @PostMapping("/")
+  public Post createPostDetail(@RequestBody Map<String, String> postData) {
+    String title = postData.get("title");
+    Post result = postService.createPost(title);
+
+    return result;
+  }
+
+  @Transactional
   @GetMapping("/{id}")
-  public void getPostDetail(@PathVariable("id") long postId) {
+  public Post getPostDetail(@PathVariable("id") long postId) {
+    Post result = postService.getPost(postId);
 
+    return result;
   }
 }

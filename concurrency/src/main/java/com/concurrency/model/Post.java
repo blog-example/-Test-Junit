@@ -1,6 +1,15 @@
 package com.concurrency.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 
 @Entity
 @Table(name = "posts")
@@ -15,5 +24,9 @@ public class Post {
 
   @Column(name = "view_count")
   private long viewCount;
+
+  public void updateViewCount(long count) {
+    this.viewCount = count;
+  }
 
 }
