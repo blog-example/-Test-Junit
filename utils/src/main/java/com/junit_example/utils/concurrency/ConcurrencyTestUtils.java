@@ -1,4 +1,4 @@
-package com.junit.utils.concurrency;
+package com.junit_example.utils.concurrency;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

@@ -1,6 +1,6 @@
-package com.concurrency;
+package com.junit_example.concurrency;
 
-import com.concurrency.model.Post;
+import com.junit_example.concurrency.model.Post;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;

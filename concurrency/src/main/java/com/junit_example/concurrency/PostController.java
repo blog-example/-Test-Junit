@@ -1,6 +1,6 @@
-package com.concurrency;
+package com.junit_example.concurrency;
 
-import com.concurrency.model.Post;
+import com.junit_example.concurrency.model.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;

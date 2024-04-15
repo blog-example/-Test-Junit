@@ -1,4 +1,4 @@
-package com.junit.utils.concurrency;
+package com.junit_example.utils.concurrency;
 
 
 @FunctionalInterface

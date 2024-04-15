@@ -1,7 +1,7 @@
-package com.concurrency;
+package com.junit_example.concurrency;
 
-import com.junit.utils.concurrency.ConcurrencyTestUtils;
-import com.concurrency.model.Post;
+import com.junit_example.utils.concurrency.ConcurrencyTestUtils;
+import com.junit_example.concurrency.model.Post;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

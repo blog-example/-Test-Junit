@@ -1,4 +1,4 @@
-package com.concurrency.model;
+package com.junit_example.concurrency.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

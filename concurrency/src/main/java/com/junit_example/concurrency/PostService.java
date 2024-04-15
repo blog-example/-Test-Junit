@@ -1,6 +1,6 @@
-package com.concurrency;
+package com.junit_example.concurrency;
 
-import com.concurrency.model.Post;
+import com.junit_example.concurrency.model.Post;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
