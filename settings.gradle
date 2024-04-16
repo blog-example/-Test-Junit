@@ -1,4 +1,5 @@
 rootProject.name = 'junit_example'
 include ':concurrency'
 include ':utils'
+include ':verify_argthat'
 

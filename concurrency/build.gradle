@@ -3,7 +3,7 @@ plugins {
 	id 'io.spring.dependency-management'
 }
 
-group = 'com.concurrency'
+group = 'com.junit_example.concurrency'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
